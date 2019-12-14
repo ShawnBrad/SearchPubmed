@@ -1,0 +1,12 @@
+export(search.pubmed)
+export(see.authors)
+export(open.article)
+import(stringr)
+import(dplyr)
+import(rvest)
+importFrom(lubridate, 'ymd')
+importFrom(purrr,"map",'map_dfr')
+importFrom(magrittr,"%>%")
+importFrom(xml2)
+importFrom(utils, "browseURL")
+
