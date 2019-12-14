@@ -9,4 +9,4 @@ importFrom(purrr,"map",'map_dfr')
 importFrom(magrittr,"%>%")
 importFrom(xml2)
 importFrom(utils, "browseURL")
-
+inport(httr)

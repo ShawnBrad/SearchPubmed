@@ -21,6 +21,6 @@ open.article(search = NULL, results = NULL, index = 'article.titles')
 #open.article('Postnatal', results = saved.search)
 
 ## Open article with "Children's" in abstract
-#open.article("Children's", results = saved.search, index = 'article.abstracts')
+#open.article("Children's", results = saved.search, index = #'article.abstracts')
 }
 
