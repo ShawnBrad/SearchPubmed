@@ -16,7 +16,8 @@ Imports:rvest,
         stringr,
         purrr,
         xml2,
-        magrittr
+        magrittr.
+        inport(httr)
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
         
