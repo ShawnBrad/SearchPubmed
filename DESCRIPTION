@@ -2,7 +2,7 @@ Package: PubSearch
 Type: Package
 Title: Interface to Search PubMed  
 Version: 0.1.0
-Author: Shawn Williams
+Author: Shawn W, Blessing A
 Maintainer: The package maintainer <shawn_williams@brown.ed>
 Description: This package interacts with the entrez api to query pubmed and retriev article information.
 License: None for Now
