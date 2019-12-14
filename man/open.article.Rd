@@ -15,12 +15,12 @@ open.article(search = NULL, results = NULL, index = 'article.titles')
 
 \examples{
 ## save search
-#saved.search <- search.pubmed(term = 'baby')
+##saved.search <- search.pubmed(term = 'baby')
 
 ## Open article with 'Postnatal' title
-#open.article('Postnatal', results = saved.search)
+## open.article('Postnatal', results = saved.search)
 
 ## Open article with "Children's" in abstract
-#open.article("Children's", results = saved.search, index = #'article.abstracts')
+## open.article("Children's", results = saved.search, index = #'article.abstracts')
 }
 
