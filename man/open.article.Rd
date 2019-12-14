@@ -12,15 +12,3 @@ open.article(search = NULL, results = NULL, index = 'article.titles')
 \item{results}{saved search results from a search.pubmed( ) call}
 \item{index}{results column to search in saved search results}
 }
-
-\examples{
-## save search
-##saved.search <- search.pubmed(term = 'baby')
-
-## Open article with 'Postnatal' title
-## open.article('Postnatal', results = saved.search)
-
-## Open article with "Children's" in abstract
-## open.article("Children's", results = saved.search, index = #'article.abstracts')
-}
-
