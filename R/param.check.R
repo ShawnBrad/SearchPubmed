@@ -20,7 +20,7 @@ param.check.field <- function(fields){
 param.check.dates <- function(dates){
   # check formating
   eval.dates = F
-  if (str_c(dates[1]) != str_c(dates[2])) stop('min and max dates are not of the same format')
+  if (str_length(dates[1]) != str_length(dates[2])) stop('min and max dates are not of the same format')
 
   if (str_count(dates)[1] == 4){
     eval.dates <- dates %>%
