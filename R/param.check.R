@@ -2,7 +2,6 @@ param.check.field <- function(fields){
   #for now modifying will be limited to the search
   #query until a simple method is found to
   #specify more complicated searches
-  filter.tags <- readRDS('R/sysdata.rds')
 
   if (!is.null(fields)){
     if (sum(fields %in% names(filter.tags)) < 1){
