@@ -10,7 +10,10 @@ get.url <- function(term = NULL, db = NULL, retmax = NULL, reldate = NULL,
   # set db
   if (!is.null(db)) url <- paste0(base.url,'&db=',db)
   #set number of records
-  if (!is.null(retmax)) url <- paste0(url,'&retmax=',retmax)
+  if (!is.null(retmax)){
+    if (retmax > 1e5) (retmax = 1e5)
+    url <- paste0(url,'&retmax=',retmax)
+  } 
   # set date filter
   if ((!is.null(reldate)) & is.null(dates)) url <- paste0(url,'&reldate=',reldate)
   if (!is.null(dates) ) url <- paste0(url,'&mindate=',dates[1],'&maxdate=',dates[2])
