@@ -15,8 +15,8 @@ get.url <- function(term = NULL, db = NULL, retmax = NULL, reldate = NULL,
     url <- paste0(url,'&retmax=',retmax)
   } 
   # set date filter
-  if ((!is.null(reldate)) & is.null(dates)) url <- paste0(url,'&reldate=',reldate)
-  if (!is.null(dates) ) url <- paste0(url,'&mindate=',dates[1],'&maxdate=',dates[2])
+  if ((!is.null(reldate)) & is.null(dates)) url <- paste0(url,'&datetype=pdat&reldate=',reldate)
+  if (!is.null(dates) ) url <- paste0(url,'&datetype=pdat&mindate=',dates[1],'&maxdate=',dates[2])
   if (! is.null(sort)) url <- paste0(url, '&sort=',param.check.sort(sort))
    # set search term
   term <- term %>%
@@ -31,7 +31,7 @@ get.url <- function(term = NULL, db = NULL, retmax = NULL, reldate = NULL,
 
 
 
-
+get.url(term = 'ss', db= 'pubmed', reldate = 1)
 
 
 
