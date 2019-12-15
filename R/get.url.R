@@ -17,7 +17,7 @@ get.url <- function(term = NULL, db = NULL, retmax = NULL, reldate = NULL,
   if (! is.null(sort)) url <- paste0(url, '&sort=',param.check.sort(sort))
    # set search term
   term <- term %>%
-  str_replace_all(pattern = '\\s',replacement = '+')
+  str_replace_all(pattern = '\\s+',replacement = '+')
 
   url <- paste0(url,'&term=',term)
   if (! is.null(fields)) url <- paste0(url,param.check.field(fields))
