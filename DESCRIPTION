@@ -3,7 +3,7 @@ Type: Package
 Title: Interface to Search PubMed  
 Version: 0.1.0
 Author: Shawn W
-Maintainer: The package maintainer <shawn_williams@brown.ed>
+Maintainer: The package maintainer <shawn_williams@brown.edu>
 Description: This package interacts with the entrez api to query pubmed and retriev article information.
 License: None for Now
 Encoding: UTF-8

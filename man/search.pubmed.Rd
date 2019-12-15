@@ -2,22 +2,21 @@
 \alias{search.pubmed}
 \title{search.pubmed}
 \description{
-Searched pubmed for articles matching provided queries
+Searched pubmed for articles matching provided search queries
 }
 \usage{
 search.pubmed(term = NULL, db = 'pubmed', retmax = '100',fields = NULL, reldate = '365', dates = NULL, sort = NULL)
 }
 \arguments{
-\item{term}{search phrase or phrases seperated by white space}
+\item{term}{search phrase or phrases}
 \item{db}{entrez database to query, defaults to pubmed}
-\item{retmax}{maximum records to return}
+\item{retmax}{maximum records to return. maximum is 100,000}
 \item{field}{field to limit search phrase to}
 \item{reldate}{number of days from current to limit search to}
 \item{dates}{vector of length 2 with dates to limit search to in YYYY/MM/DD or YYYY/MM or YYYY format}
 \item{sort}{method to sort results,  c('most+recent', 'journal', 'pub+date', 'relevance','title', 'author') }
 
 }
-
 \examples{
 ## simple search
 #baby.search <- search.pubmed(term = 'baby')

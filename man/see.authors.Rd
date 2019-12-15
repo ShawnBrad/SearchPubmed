@@ -8,7 +8,7 @@ Extract author information from a saved search.
 see.authors(search = NULL, results = NULL, index = 'article.titles')
 }
 \arguments{
-\item{search}{a string or regular expression to identify paper to open in search results}
+\item{search}{a string or regular expression which identifies paper(s) to open in search results}
 \item{results}{saved search results from a search.pubmed( ) call}
 \item{index}{results column to search in saved search results}
 }
