@@ -37,7 +37,7 @@ param.check.dates <- function(dates){
       str_detect('\\d\\d\\d\\d/\\d\\d/\\d\\d')  %>%
       sum() == 2
   }
-  if (!eval.dates) stop('dates not formatted correctly check min and max dates entered')
+  if (eval.dates) stop('dates not formatted correctly check min and max dates entered')
 }
 
 param.check.sort <- function(sort){
