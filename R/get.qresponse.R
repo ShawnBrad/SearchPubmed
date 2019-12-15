@@ -1,5 +1,8 @@
 get.qresponse <- function(url, retmax){
   rettype <- 'abstract'
+  
+  if (GET(url)$status == 404) stop('Search failed, check search query format')
+  
   parsed <- GET(url) %>%
     content(as = 'parsed')
 
