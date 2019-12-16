@@ -1,9 +1,10 @@
-search.pubmed <- function(term = NULL, db = 'pubmed', retmax = '100', reldate = '365',
+search.pubmed <- function(term = NULL, db = 'pubmed', retmax = '20', reldate = '365',
                           fields = NULL, dates = NULL, sort = NULL ){
+  
   get.url(term , db , retmax , reldate,
           fields, dates, sort) %>%
     get.qresponse(retmax) %>%
-    GET() %>%
+    GET()  %>%
     content( as = 'parsed') %>%
     xml_children() %>%
     map_dfr(.f = article.scrape)  %>% # scrape each article one by one
@@ -11,6 +12,4 @@ search.pubmed <- function(term = NULL, db = 'pubmed', retmax = '100', reldate = 
 
     return()
 }
-
-
 

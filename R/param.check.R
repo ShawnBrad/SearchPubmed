@@ -22,22 +22,22 @@ param.check.dates <- function(dates){
   eval.dates = F
   if (str_length(dates[1]) != str_length(dates[2])) stop('min and max dates are not of the same format')
 
-  if (str_count(dates)[1] == 4){
+  if (str_length(dates)[1] == 4){
     eval.dates <- dates %>%
       str_detect('\\d\\d\\d') %>%
       sum() == 2
   }
-  if (str_count(dates)[1] == 7){
+  if (str_length(dates)[1] == 7){
     eval.dates <- dates %>%
       str_detect('\\d\\d\\d\\d/\\d\\d')  %>%
       sum() == 2
   }
-  if (str_count(dates)[1] == 10){
+  if (str_length(dates)[1] == 10){
     eval.dates <- dates %>%
       str_detect('\\d\\d\\d\\d/\\d\\d/\\d\\d')  %>%
       sum() == 2
   }
-  if (eval.dates) stop('dates not formatted correctly check min and max dates entered')
+  if (!eval.dates) stop('dates not formatted correctly check min and max dates entered')
 }
 
 param.check.sort <- function(sort){

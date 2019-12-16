@@ -1,0 +1,133 @@
+---
+title: "Performing literature searches with PubSearch"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Performing literature searches with discover nature}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+This package aims to enhance the utility of the DiscoverNature package by searching the pubmed database using the entrez api. The package introduces the ability to perform a wider range of searches which are not limited to a single publisher and also returns abstracts along with detailed author information. The package was design to be simple to use for users, while still making  the myriad of search options provided in the entrez api available to more advanced users. 
+
+## Getting Started
+The package can be installed from github using the following commands in R
+
+```{r message=FALSE, warning=FALSE}
+#library(devtools)
+#install_github("ShawnBrad/SearchPubmed", force = T)
+library(PubSearch)
+```
+
+
+
+### Basic literature search
+The search.pubmed( ) is used to query  pubmed for a topic of interest.
+
+```{r }
+paper.results <- search.pubmed(term = 'cells', retmax = 5)
+paper.results
+```
+
+### Sorting results
+Results from searches can be sorted by date, relevance, title or author using the sort argument.
+
+```{r }
+paper.results_titlesort <- search.pubmed(term = 'cells', sort = 'title', retmax = 5)
+paper.results_titlesort %>%
+  select(article.titles,article.date)
+```
+
+```{r }
+paper.results_datesort <- search.pubmed(term = 'cells', sort = 'most+recent', retmax = 5)
+paper.results_datesort %>%
+  select(article.titles,article.date)
+```
+
+
+### Restricting the number of records returned
+The maximum number of records returned can be limited using *retmax* argument. **there is an upper limit of 100,000**)
+
+```{r }
+paper.results <- search.pubmed(term = 'cells', retmax = 5)
+paper.results
+```
+
+### Restricting search by date
+
+Two options are available for restricting searches by date. The 'reldate' argument restricts searches to the past n days, while the dates arguments restricts searches to user provided dates
+
+*relative date searches*
+```{r }
+paper.results_last10days <- search.pubmed('cells', reldate = '10', retmax = 5)
+paper.results_last10days
+```
+
+*provided date searches*
+```{r }
+paper.results_june1to30 <- search.pubmed('cells', dates = c('2019/06/01','2019/06/30'), retmax = 5)
+paper.results_june1to30
+```
+
+You can also specify year and/or months via the dates argument
+
+```{r }
+paper.results_junetojuly <- search.pubmed('cells', dates = c('2019/06','2019/07'), retmax = 5)
+paper.results_junetojuly
+```
+
+
+```{r }
+paper.results_2017to2018 <- search.pubmed('cells', dates = c('2017','2018'), retmax = 5)
+paper.results_2017to2018
+```
+
+
+### Advanced searches
+Search phrases can be limited to specific fields by specifying the **name** of the field using the *fields* argument.
+
+```{r }
+paper.results_cells <- search.pubmed(term = 'cells',fields = 'Title', retmax = 5)
+paper.results_cells %>%
+  pull(article.titles)
+```
+
+The total set of supported fields have been made available with the package. 
+```{r }
+data(PubmedTags) 
+PubmedTags
+```
+
+The fields arguments will modify the entire search phrase,however individual search terms can be restricted to speficic fields by providing the field tags along with the term. Journal abbreviations can be found on the NCBI [website](https://www.ncbi.nlm.nih.gov/nlmcatalog?term=currentlyindexed)
+
+```{r }
+paper.results_cells_nature <- search.pubmed(term = 'cells[TI] nature[TA]', retmax = 5)
+paper.results_cells_nature %>%
+  select(article.journal, article.titles)
+```
+
+Using tags and fields arguments simultaniously is not recomended.
+
+### Opening articles 
+
+We have also included a convinient way to directly open papers from searches 
+```{r }
+
+paper.results <- search.pubmed(term = 'cells', dates = c(2015,2018), retmax = 5)
+
+#open.article(search = 'MMP-1', results = paper.results, index = 'article.titles')
+```
+
+
+### Getting author information
+Author information is returned as a tibble contained in  the article.authors column of a searched results. To view easily we have provided the see.authors function which takes the same arguments as the open.article function. 
+We reccomend either removing the a
+```{r }
+see.authors(search = 'MMP-1', results = paper.results, index = 'article.titles')
+
+```
+If exporting the saved results to text reccomend either removing the article.authors column column collapsing the authors into a string prior to export

@@ -4,8 +4,11 @@
 
 get.authors <- function(article){
   # takes as inbut a single xml_node set corresponding to an article
-xml_nodes(article, xpath =  './/AuthorList/Author') %>%
+out<- xml_nodes(article, xpath =  './/AuthorList/Author') %>%
   map_dfr( .f = get.name.info)
+
+if (is.null(out)) out = 'NA'
+  return(out)
 
 }
 
