@@ -7,7 +7,7 @@ Maintainer: The package maintainer <shawn_williams@brown.edu>
 Description: This package interacts with the entrez api to query pubmed and retriev article information.
 License: None for Now
 Encoding: UTF-8
-LazyData: false
+LazyData: true
 Imports:rvest, 
         lubridate,
         dplyr,
@@ -20,7 +20,7 @@ Imports:rvest,
         httr
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
-StagedInstall: no
+
         
 
     
