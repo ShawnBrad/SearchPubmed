@@ -33,7 +33,7 @@ article.scrape <- function(parsed.xml){
     xml_text()
 
   ### formatting output tibble
-  as_tibble(article.date,
+  tibble(article.date,
          article.titles,
          article.abstracts,
          article.types,
