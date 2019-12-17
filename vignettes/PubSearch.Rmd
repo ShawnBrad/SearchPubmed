@@ -21,6 +21,7 @@ The package can be installed from github using the following commands in R
 #library(devtools)
 #install_github("ShawnBrad/SearchPubmed", force = T)
 library(PubSearch)
+library(tidyverse)
 ```
 
 
@@ -36,10 +37,10 @@ paper.results
 ### Sorting results
 Results from searches can be sorted by date, relevance, title or author using the sort argument.
 
- ```{r }
-# paper.results_titlesort <- search.pubmed(term = 'cells', sort = 'title', retmax = 5)
-# paper.results_titlesort %>%
-#   dplyr::select(article.titles,article.date)
+```{r }
+ paper.results_titlesort <- search.pubmed(term = 'cells', sort = 'title', retmax = 5)
+ paper.results_titlesort %>%
+   dplyr::select(article.titles,article.date)
 ```
 
 ```{r }
