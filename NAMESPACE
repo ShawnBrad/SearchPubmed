@@ -1,6 +1,7 @@
 export(search.pubmed)
 export(see.authors)
 export(open.article)
+export(see.citations)
 import(stringr)
 import(dplyr)
 import(rvest)
