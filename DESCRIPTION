@@ -18,7 +18,7 @@ Imports:rvest,
         xml2,
         magrittr,
         httr
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, rcrossref
 VignetteBuilder: knitr
 
         
