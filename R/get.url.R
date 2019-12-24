@@ -34,3 +34,6 @@ get.url <- function(term = NULL, db = NULL, retmax = NULL, reldate = NULL,
   return(out.url)
   }
 
+
+
+

@@ -20,3 +20,4 @@ get.qresponse <- function(url, retmax){
 
   return(r.url)
 }
+
