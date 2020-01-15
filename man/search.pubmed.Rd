@@ -11,7 +11,7 @@ search.pubmed(term = NULL, db = 'pubmed', retmax = '100',fields = NULL, reldate 
 \item{term}{search phrase or phrases}
 \item{db}{entrez database to query, defaults to pubmed}
 \item{retmax}{maximum records to return. maximum is 100,000}
-\item{field}{field to limit search phrase to}
+\item{fields}{field to limit search phrase to}
 \item{reldate}{number of days from current to limit search to}
 \item{dates}{vector of length 2 with dates to limit search to in YYYY/MM/DD or YYYY/MM or YYYY format}
 \item{sort}{method to sort results,  c('most+recent', 'journal', 'pub+date', 'relevance','title', 'author') }
