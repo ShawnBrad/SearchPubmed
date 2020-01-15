@@ -1,4 +1,4 @@
-see.citations <- function(search = NULL, results = NULL , index = 'article.titles', ...){
+see.citations <- function( results = NULL ,search = NULL, index = 'article.titles', ...){
   
   if (!is.null(search)){
     if (is.null(results)) stop('result table not provided ')
