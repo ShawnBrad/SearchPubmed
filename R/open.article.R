@@ -13,8 +13,11 @@ open.article <- function( results = NULL, search = NULL, index = 'article.titles
 
     #if( length(record.id) > 1) (warning( 'search matched multiple records, using the first match'))
    # record.id <-  record.id[1]
-    paste0('https://www.ncbi.nlm.nih.gov/pubmed/',record.id) %>%
-      browseURL()
+    for (record in record.id) {
+      paste0('https://www.ncbi.nlm.nih.gov/pubmed/',record) %>%
+        browseURL()
+    }
+    
 
   }
 }
